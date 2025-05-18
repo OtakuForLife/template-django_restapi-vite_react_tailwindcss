@@ -1,0 +1,29 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Docker Compose
+      uses: hoverkraft-tech/compose-action@v2.0.1
+      with:
+        compose-file: docker-compose.test.yml
+    
+    - name: Run backend tests
+      run: docker compose exec -T backend pytest
+    
+    - name: Run frontend tests
+      run: docker compose exec -T frontend npm test
+    
+    - name: Stop containers
+      if: always()
+      run: docker compose down
