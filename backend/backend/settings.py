@@ -71,7 +71,7 @@ CSRF_USE_SESSIONS = True
 CSRF_COOKIE_SECURE = False  # Set to True in production with HTTPS
 SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
 
-ROOT_URLCONF = 'storyteller_backend.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'storyteller_backend.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
@@ -153,8 +153,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_THROTTLE_CLASSES': [
-        'storyteller_backend.throttles.IPRequestRateHighThrottle',
-        'storyteller_backend.throttles.IPRequestRateLowThrottle',
+        'backend.throttles.IPRequestRateHighThrottle',
+        'backend.throttles.IPRequestRateLowThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
         'ip-high-rate': '10/min',
