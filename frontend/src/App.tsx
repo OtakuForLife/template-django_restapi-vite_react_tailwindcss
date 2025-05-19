@@ -4,7 +4,6 @@ import { setupStore } from './store'
 import { useEffect } from 'react'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
-import WorkspacePage from './pages/WorkspacePage'
 import { useAppDispatch } from './hooks/useAppDispatch'
 import { loadTheme } from './store/slices/themeSlice'
 
@@ -19,7 +18,6 @@ const AppContent = () => {
   return (
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/workspace/*" element={<WorkspacePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
   )
